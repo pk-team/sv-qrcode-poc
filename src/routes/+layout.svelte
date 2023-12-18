@@ -1,5 +1,9 @@
 <script lang="ts">
 	import '../app.css';
+
+    const environment = process.env.NODE_ENV
+
+    console.log('environment', environment)
 </script>
 
 <div class="site-wrap">

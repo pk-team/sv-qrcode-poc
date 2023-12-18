@@ -5,7 +5,6 @@
 	const dispatch = createEventDispatcher()
 
 	let qrScanner: Html5QrcodeScanner;
-	let barcodes = new Set<string>();
 
 	function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
 		dispatch('scan', decodedText)
@@ -22,7 +21,7 @@
 	});
 
 	onDestroy(() => {
-		qrScanner.clear();
+		qrScanner?.clear();
 	});
 
 	let soundEffect: HTMLAudioElement
