@@ -9,7 +9,7 @@
 
 	function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
 		dispatch('scan', decodedText)
-		// barcodes = new Set([...barcodes, decodedText]);
+		soundEffect.play()
 	}
 
 	function onScanFailure(error: any) {
@@ -22,11 +22,15 @@
 	});
 
 	onDestroy(() => {
-		qrScanner
+		qrScanner.clear();
 	});
+
+	let soundEffect: HTMLAudioElement
+
 </script>
 
 <div id="render"></div>
+<audio src="/scanSuccess.mp3" bind:this={soundEffect}></audio>
 
 <style>
 	#render {
