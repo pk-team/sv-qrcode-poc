@@ -8,11 +8,8 @@
 
 <header>
 	<div class="title">
-		<h3><a href="/">SKD Barcode Scanner</a></h3>
+		<h3><a href="/">SKD Barcode Scanner Test</a></h3>
 	</div>
-	<nav>
-		<a href="/scan">Test Scan</a>
-	</nav>
 </header>
 <main>
 	<slot />
@@ -24,7 +21,7 @@
 		justify-content: start;
 		align-items: center;
 		gap: 2rem;
-		padding: 1rem;
+		padding: 1rem 4rem;
 		background: #eee;
 	}
 
@@ -37,7 +34,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
-		padding: 1rem;
+		padding: 2rem 4rem;
 		margin: 0 auto;
 	}
 
@@ -50,13 +47,15 @@
 	}
 
 	@media (max-width: 640px) {
-		main {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-
 		header {
 			gap: 1rem;
+			padding: 1rem;
+		}
+		
+		main {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+			padding: 1rem;
 		}
 	}
 </style>

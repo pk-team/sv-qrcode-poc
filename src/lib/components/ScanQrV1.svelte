@@ -34,6 +34,17 @@
 <style>
 	#render {
 		width: 100%;
-		border: 1px solid #444;
+		border: none !important;
+	}
+
+	:global(video) {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	@media (max-width: 640px) {
+		:global(video) {
+			height: 256px;
+		}
 	}
 </style>
