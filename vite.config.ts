@@ -1,6 +1,14 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import fs from 'fs';
 
-export default defineConfig({
-	plugins: [sveltekit()]
-});
+const config = {
+  plugins: [sveltekit()],
+  server: {
+    https: {
+      key: fs.readFileSync('localhost.key'),
+      cert: fs.readFileSync('localhost.crt')
+    }
+  }
+};
+
+export default config;
