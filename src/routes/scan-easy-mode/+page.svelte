@@ -35,4 +35,10 @@
 	main section {
 		height: 100%;
 	}
+
+	@media (max-width: 640px) {
+		main {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>

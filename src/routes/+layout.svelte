@@ -5,12 +5,18 @@
 <div class="site-wrap">
 	<header>
 		<div class="title">
-			<a href="/">Barcode Scan POC</a>
+			<h3><a href="/">Barcode Scan POC</a></h3>
 		</div>
 		<nav>
-			<a href="/scan-easy-mode">Scan Easy Mode</a>
-			<a href="/scan-pro-mode">Scan Pro Mode</a>
+			<a href="/scan-easy-mode">Easy Mode</a>
+			<a href="/scan-pro-mode">Pro Mode</a>
 		</nav>
 	</header>
 	<slot />
 </div>
+
+<style>
+	nav a {
+		margin-right: 0.5rem;
+	}
+</style>
