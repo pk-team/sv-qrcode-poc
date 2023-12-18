@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { Html5QrcodeScanner, type Html5QrcodeResult } from 'html5-qrcode';
-	import { onDestroy, onMount } from 'svelte';
+	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+
+	const dispatch = createEventDispatcher()
 
 	let qrScanner: Html5QrcodeScanner;
 	let barcodes = new Set<string>();
 
 	function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
-		console.log(`Code matched = ${decodedText}`, decodedResult);
-		barcodes = new Set([...barcodes, decodedText]);
+		dispatch('scan', decodedText)
+		// barcodes = new Set([...barcodes, decodedText]);
 	}
 
 	function onScanFailure(error: any) {
@@ -19,16 +21,12 @@
 		qrScanner.render(onScanSuccess, onScanFailure);
 	});
 
+	onDestroy(() => {
+		qrScanner
+	});
 </script>
 
 <div id="render"></div>
-
-<h2>Result</h2>
-<ul>
-	{#each barcodes as barcode}
-		<li>{barcode}</li>
-	{/each}
-</ul>
 
 <style>
 	#render {
