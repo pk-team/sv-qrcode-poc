@@ -6,21 +6,57 @@
     console.log('environment', environment)
 </script>
 
-<div class="site-wrap">
-	<header>
-		<div class="title">
-			<h3><a href="/">Barcode Scan POC</a></h3>
-		</div>
-		<nav>
-			<a href="/scan-easy-mode">Easy Mode</a>
-			<a href="/scan-pro-mode">Pro Mode</a>
-		</nav>
-	</header>
+<header>
+	<div class="title">
+		<h3><a href="/">SKD Barcode Scanner</a></h3>
+	</div>
+	<nav>
+		<a href="/scan">Test Scan</a>
+	</nav>
+</header>
+<main>
 	<slot />
-</div>
+</main>
 
 <style>
-	nav a {
-		margin-right: 0.5rem;
+	header {
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		gap: 2rem;
+		padding: 1rem;
+		background: #eee;
+	}
+
+	header h3 a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	main {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		padding: 1rem;
+		margin: 0 auto;
+	}
+
+	main :global(section) {
+		height: 100%;
+	}
+
+	main :global(h2) {
+		margin-bottom: 0.5rem;
+	}
+
+	@media (max-width: 640px) {
+		main {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		header {
+			gap: 1rem;
+		}
 	}
 </style>
